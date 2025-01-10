@@ -1,5 +1,5 @@
   def label = "agent"
-  def env = "prod"
+  def env = "qa"
   podTemplate(label: label, yaml: """
   apiVersion: v1
   kind: Pod
