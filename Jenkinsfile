@@ -6,7 +6,7 @@
             label 'agent'
             defaultContainer 'build'
         }
-    } {
+    } 
       stages  {
 
           stage ('Checkout SCM'){
@@ -25,4 +25,4 @@
           }
           }
       }
-  }}
+  }
