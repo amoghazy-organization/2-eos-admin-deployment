@@ -1,22 +1,13 @@
   def label = "agent"
   def env = "qa"
-  podTemplate(label: label, yaml: """
-  apiVersion: v1
-  kind: Pod
-  metadata:
-    labels:
-      name: build
-  spec:
-    serviceAccount: jenkins-admin
-    containers:
-    - name: build
-      image: amoghazy/jenkins-agent:latest
-      command:
-      - cat
-      tty: true
-  """
-  ) {
-      node (label) {
+  pipeline {
+    agent {
+        kubernetes {
+            label 'agent'
+            defaultContainer 'build'
+        }
+    } {
+      stages  {
 
           stage ('Checkout SCM'){
             git credentialsId: 'git', url: 'https://github.com/amoghazy-organization/2-eos-admin-deployment.git', branch:  "${env}"
@@ -34,4 +25,4 @@
           }
           }
       }
-  }
+  }}
