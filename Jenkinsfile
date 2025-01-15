@@ -1,4 +1,3 @@
-  def label = "agent"
   def env = "dev"
   pipeline {
     agent {
@@ -6,10 +5,13 @@
             label 'agent'
             defaultContainer 'build'
         }
-    } 
-      stages  {
-
-          stage ('Checkout SCM'){
+    }
+    environment {
+        IMAGE_NAME = "amoghazy/eos-micro-services-admin"
+      
+    }
+    stages {
+       stage ('Checkout SCM'){
              steps {
             git credentialsId: 'git', url: 'https://github.com/amoghazy-organization/2-eos-admin-deployment.git', branch:  "${env}"
           }}
@@ -26,5 +28,5 @@
               }
           }}
           }
-      }
-  }
+    }
+}
