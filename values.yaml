@@ -1,2 +1,4 @@
 deployment:
   replicas: 2
+ingress:
+  host: "prod-eos-micro-services-admin.local"
