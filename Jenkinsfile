@@ -10,7 +10,7 @@
 
                  stage ('Checkout SCM'){
              steps {
-            git credentialsId: 'git', url: 'https://github.com/amoghazy-organization/2-eos-admin-deployment.git', branch:  "main"
+            git credentialsId: 'git', url: 'https://github.com/amoghazy-organization/2-eos-admin-deployment.git', branch:  "${env}"
           }}
 
 
