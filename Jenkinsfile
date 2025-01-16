@@ -1,4 +1,3 @@
-  def label = "agent"
   def env = "prod"
   pipeline {
     agent {
@@ -6,7 +5,7 @@
             label 'agent'
             defaultContainer 'build'
         }
-    } {
+    } 
       stages  {
 
           stage ('Checkout SCM'){
@@ -25,4 +24,4 @@
           }
           }
       }
-  }}
+  }
