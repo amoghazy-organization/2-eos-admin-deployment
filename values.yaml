@@ -1,4 +1,4 @@
 deployment:
   replicas: 2
 ingress:
-  host: "dev-eos-micro-services-admin.local"
+  host: "qa-eos-micro-services-admin.local"
